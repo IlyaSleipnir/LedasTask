@@ -19,25 +19,25 @@ std::pair<bool, Vector3D> Segment3D::Intersect(Segment3D seg)
 {
 	double eps = 10e-7;
 
-	// p_i - направляющий вектор прямой 
+	// p_i - РЅР°РїСЂР°РІР»В¤СЋС‰РёР№ РІРµРєС‚РѕСЂ РїСЂВ¤РјРѕР№ 
 	Vector3D p1 = this->end - this->start;
 	Vector3D p2 = seg.end - seg.start;
 
-	// канонический вид прямой: (x - start.x) / p.x = (y - start.y) / p.y = (z - start.z) / p.z
+	// РєР°РЅРѕРЅРёС‡РµСЃРєРёР№ РІРёРґ РїСЂВ¤РјРѕР№: (x - start.x) / p.x = (y - start.y) / p.y = (z - start.z) / p.z
 	Vector3D solve[3];
 	int ind1 = -1, ind2 = -1;
 
-	// столбец s1
+	// СЃС‚РѕР»Р±РµС† s1
 	solve[0].X = p1.X;
 	solve[1].X = p1.Y;
 	solve[2].X = p1.Z;
 
-	// столбец s2
+	// СЃС‚РѕР»Р±РµС† s2
 	solve[0].Y = -p2.X;
 	solve[1].Y = -p2.Y;
 	solve[2].Y = -p2.Z;
 
-	// свободный член
+	// СЃРІРѕР±РѕРґРЅС‹Р№ С‡Р»РµРЅ
 	solve[0].Z = seg.start.X - this->start.X;
 	solve[1].Z = seg.start.Y - this->start.Y;
 	solve[2].Z = seg.start.Z - this->start.Z;
@@ -85,7 +85,7 @@ std::pair<bool, Vector3D> Segment3D::Intersect(Segment3D seg)
 
 	if ( s1 < 0 || s1 > 1 || s2 < 0 || s2 > 1)
 	{
-		// точка пересечения лежить вне отрезков
+		// С‚РѕС‡РєР° РїРµСЂРµСЃРµС‡РµРЅРёВ¤ Р»РµР¶РёС‚СЊ РІРЅРµ РѕС‚СЂРµР·РєРѕРІ
 		return std::make_pair(false, Vector3D());
 	}
 

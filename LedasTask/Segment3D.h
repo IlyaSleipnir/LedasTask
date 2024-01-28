@@ -12,7 +12,4 @@ public:
 	Segment3D();
 	~Segment3D();
 	std::pair<bool, Vector3D> Intersect(Segment3D seg);
-
-private:
-
 };

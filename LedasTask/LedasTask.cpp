@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include "Segment3D.h"
 
 int main()

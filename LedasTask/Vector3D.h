@@ -14,7 +14,4 @@ public:
 	Vector3D operator- (const Vector3D vec) const;
 	Vector3D operator* (const Vector3D vec) const;
 	Vector3D operator* (const double num) const;
-
-private:
-
 };
